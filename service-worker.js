@@ -7,5 +7,6 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // オフライン対応を入れたい場合はここに書く
+  // 必須ではないが、fetch を書くと PWA 判定が安定する
 });
+
