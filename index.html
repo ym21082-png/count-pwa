@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>複数カウンター</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>複数カウンター</h1>
+　<a href="history.html" class="floating-button" title="履歴を見る">📊</a>
+    <div class="fab-container">
+  <a href="history.html" class="fab">📊</a>
+  <a href="settings.html" class="fab">⚙️</a>
+  <a href="help.html" class="fab">❓</a>
+</div>
+
+  <div id="add-area">
+    <input id="newCounterName" type="text" placeholder="カウンター名を入力">
+    <button id="addCounterBtn">追加</button>
+  </div>
+
+  <div id="counters"></div>
+
+  <script src="script.js"></script>
+
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .catch(err => console.log('SW registration failed:', err));
+  }
+</script>
+
+</body>
+</html>
+

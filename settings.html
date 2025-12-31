@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設定</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>設定</h1>
+
+  <div class="settings-card">
+  <h2>テーマ</h2>
+  <label class="switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span>
+  </label>
+  <p>ライト / ダークモードを切り替えます。</p>
+</div>
+
+
+<!-- カウンターに戻るボタン -->
+<a href="index.html" class="floating-button" title="カウンターに戻る">↩️</a>
+
+<!-- データ削除ボタンのスクリプト -->
+<script>
+  document.getElementById("clearDataBtn").onclick = () => {
+    if (confirm("本当に全データを削除しますか？")) {
+      localStorage.clear();
+      alert("データを削除しました");
+    }
+  };
+</script>
+
+<!-- ▼ ここにテーマ切り替えスイッチのJSを追加する -->
+<script>
+  const toggle = document.getElementById("themeToggle");
+
+  // 保存されたテーマを読み込み
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  });
+</script>
+
+</body>
+</html>
